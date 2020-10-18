@@ -3,13 +3,20 @@ from django.db import models
 # Create your models here.
 class Sighting(models.Model):
 
+    auto_increment_id = models.AutoField(
+        primary_key=True
+    )
+
     latitude = models.FloatField(max_length=30)
     longitude = models.FloatField(max_length=30)
     
     unique_squirrel_id = models.CharField(
         max_length=20,
-        primary_key=True,
-        unique=True
+    )
+
+    hectare = models.CharField(
+        max_length=30,
+        blank=True
     )
 
     shift = models.CharField(
@@ -19,6 +26,10 @@ class Sighting(models.Model):
 
     date = models.DateField(
         auto_now=False        
+    )
+
+    hectare_squirrel_number = models.IntegerField(
+        null=True
     )
 
     age = models.CharField(
@@ -36,9 +47,24 @@ class Sighting(models.Model):
         blank=True
     )
 
+    combination_of_primary_and_highlight_color = models.TextField(
+        max_length=128,
+        blank=True
+    )
+
+    color_notes = models.TextField(
+        max_length=300,
+        blank=True
+    )
+
     location = models.CharField(
         max_length=30,
         default='Ground Plane'
+    )
+
+    above_ground_sighter_measurement = models.TextField(
+        max_length=30,
+        blank=True
     )
 
     specific_location = models.TextField(
@@ -66,7 +92,7 @@ class Sighting(models.Model):
         default=False        
     )
 
-    other_activity = models.TextField(
+    other_activities = models.TextField(
         max_length=128,
         blank=True
     )
@@ -95,7 +121,12 @@ class Sighting(models.Model):
     runs_from = models.BooleanField(
         default=False
     )
-    other_interaction = models.TextField(
+    other_interactions = models.TextField(
         max_length=128,
+        blank=True
+    )
+
+    lat_long = models.TextField(
+        max_length=300,
         blank=True
     )

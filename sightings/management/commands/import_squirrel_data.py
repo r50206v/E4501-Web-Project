@@ -11,4 +11,22 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
 
         data = pd.read_csv(options['file_path'])
-        print(data.head(3))
+        
+        data.columns = [
+            c.lower().replace(' ', '_').replace('/', '_') 
+            for c in data.columns
+        ]
+        data.rename(columns={
+            "x": "latitude",
+            "y": "longitude"
+        }, inplace=True)
+        data['date'] = pd.to_datetime(
+            data['date'].astype(str),
+            format='%m%d%Y'
+        )
+        sightList = data.to_dict(orient='records')
+        
+
+        sightList = [Sighting(**s) for s in sightList]
+        Sighting.objects.all().delete()
+        Sighting.objects.bulk_create(sightList)
