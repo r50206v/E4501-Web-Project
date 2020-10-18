@@ -27,7 +27,11 @@ $ python3 manage.py export_squirrel_data /path/to/file.csv
 
 ### Pages
 `/sightings`: this is the homepage of the project. it lists all of the records with links, and users are able to report new spots, update records and view the map
+
 `/map`: view the squirrels spot on the map
+
 `/sightings/<unique-squirrel-id>`: individaul record
+
 `/sightings/add`: report new observations
+
 `/sightings/stats`: show some basic statistics of the data
