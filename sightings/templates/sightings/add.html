@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang='en-US'>
+    <head>
+        <style type='text/css'>
+            body {
+                background-color: #FEF9E7;
+            }
+            h1 {
+                color: #2980B9;
+                font-family: 'Open Sans', sans-serif;
+                font-size: 40px;
+                font-weight: 500;
+            }
+            h2 {
+                color: #2980B9;
+                font-family: 'Open Sans', sans-serif;
+                font-size: 20px;
+                font-weight: 500;
+            }
+            p {
+                color: #5D6D7E;
+                font-family: 'Open Sans', sans-serif;
+                font-size: 16px;
+                font-weight: 500;
+            }
+            a {
+                color: #5D6D7E;
+                font-family: 'Open Sans', sans-serif;
+                font-size: 10px;
+                font-weight: 500;
+            }
+            ul {
+                -webkit-column-count: 4; /* Chrom, Safari, Opera */
+                -moz-column-count: 4; /* Firefox */
+                column-count: 4;
+            }
+            .form-style-4{
+                max-width: 1000px;
+                margin: 8px auto;
+                font-size: 12px;
+                background: #FEF9E7;
+                padding: 30px 30px 30px 30px;
+                border: 5px solid #FEF9E7;
+            }
+        </style>
+    </head>
+    <head>
+        <body>
+            <h1 align='center'>Report Squirrel Sites</h1>
+            {% load static %}
+            <hr>
+            <form action="" class="form-style-4" method="post">
+                {% csrf_token %}
+                <table>
+                    {{ form.as_p }}
+                </table>
+                <br>
+                <br>
+                <input type="submit" value="OK">
+            </form>
+        </body>
+    </head>
+</html>
