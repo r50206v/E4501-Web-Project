@@ -1,6 +1,6 @@
 from django.urls import path
-from . import views
+from .views import squirrel_map
 
 urlpatterns = [
-    path('', views.index, name='index')
+    path('', squirrel_map)
 ]
