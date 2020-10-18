@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from sightings import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('map/', include('map.urls')),
     path('sightings/', include('sightings.urls')),
-    path('', include('sightings.urls'))
+    path('', views.all_squirrels)
 ]
