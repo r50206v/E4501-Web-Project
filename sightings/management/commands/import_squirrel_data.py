@@ -1,7 +1,6 @@
-import pandas as pd
-
-from django.core.management.base import BaseCommand
 from sightings.models import Sighting
+from django.core.management.base import BaseCommand
+import pandas as pd
 
 class Command(BaseCommand):
 
