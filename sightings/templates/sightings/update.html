@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <form meth="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <hr>
+            <input type="submit" name="Update" value="Update">
+        </form>
+    </body>
+</html>
