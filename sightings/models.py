@@ -21,7 +21,8 @@ class Sighting(models.Model):
 
     shift = models.CharField(
         max_length=2,
-        default='AM'
+        default="AM",
+        choices=(("AM", "AM"), ("PM", "PM"))
     )
 
     date = models.DateField(
@@ -34,17 +35,20 @@ class Sighting(models.Model):
 
     age = models.CharField(
         max_length=15,
-        default='Adult'
+        default='Adult',
+        choices=(("Adult", "Adult"), ("Juvenile", "Juvenile"))
     )
 
     primary_fur_color = models.CharField(
         max_length=15,
-        default='Gray'
+        default='Gray',
+        choices=(("Gray", "Gray"), ("Cinnamon", "Cinnamon"), ("Black", "Black"), ("White", "White"))
     )
 
     highlight_fur_color = models.CharField(
         max_length=15,
-        blank=True
+        blank=True,
+        choices=(("Gray", "Gray"), ("Cinnamon", "Cinnamon"), ("Black", "Black"), ("White", "White"))
     )
 
     combination_of_primary_and_highlight_color = models.TextField(
@@ -59,7 +63,8 @@ class Sighting(models.Model):
 
     location = models.CharField(
         max_length=30,
-        default='Ground Plane'
+        default='Ground Plane',
+        choices=(("Ground Plane", "Ground Plane"), ("Above Ground", "Above Ground"))
     )
 
     above_ground_sighter_measurement = models.TextField(
