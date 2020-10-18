@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang='en-US'>
+<!doctype html>
+<html>
     <head>
         <style type='text/css'>
             body {
@@ -29,6 +29,12 @@
                 font-size: 10px;
                 font-weight: 500;
             }
+            li {
+                color: #5D6D7E;
+                font-family: 'Open Sans', sans-serif;
+                font-size: 10px;
+                font-weight: 500;
+            }
             ul {
                 -webkit-column-count: 4; /* Chrom, Safari, Opera */
                 -moz-column-count: 4; /* Firefox */
@@ -36,26 +42,22 @@
             }
         </style>
     </head>
-    <head>
-        <body>
-            {% load static %}
-            <h1 align='center'>All Squirrels</h1>
-            <hr>
-
-            <p align='left'><a>Add more</a></p>
-            <hr>
-
-            <h2 align='center'>
-                List of all squirrel sites
-            </h2>
-            <br>
-            <ul>
-                {% for data in squirrels %}
+    <body>
+        <h1 align='center'>List of all squirrel sites</h1>
+        <form>
+            <div>
+            <a href="/sightings/add"><button type="button">report</button></a>
+            <a href="/sightings/stats"><button type="button">statistics</button></a>
+            <a href="/map"><button type="button">show map</button></a>
+            </div>
+        </form>
+        <ul>
+            {% for data in squirrels %}
                 <li>
-                    <a>{{data.unique_squirrel_id}} / {{data.date}}: link</a>
+                    {{ data.unique_squirrel_id }} / {{data.date}}: 
+                    <a href="/sightings/{{data.unique_squirrel_id}}">Link</a>
                 </li>
-                {% endfor %}
-            </ul>
-        </body>
-    </head>
+            {% endfor %}
+        </ul>
+    </body>
 </html>
