@@ -67,14 +67,3 @@ def all_squirrels(request):
         return render(request, 'sightings/all.html', context)
     else:
         Http404("Page Not Found")
-
-
-def squirrel_map(request):
-    if request:
-        sightings = Sighting.objects.all()[:100]
-        context = {
-            'sightings': sightings
-        }
-        return render(request, '/map.html', context)
-    else:
-        Http404("Page Not Found")

@@ -8,7 +8,6 @@ class Command(BaseCommand):
         parser.add_argument('file_path')
 
     def handle(self, *args, **options):
-
         data = pd.read_csv(options['file_path'])
         
         data.columns = [
